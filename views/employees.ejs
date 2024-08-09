@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employees</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; margin: 0; padding: 0; text-align: center; }
+        h1 { color: #333; }
+        table { width: 80%; margin: 20px auto; border-collapse: collapse; }
+        th, td { padding: 10px; border: 1px solid #ddd; }
+        th { background-color: #007bff; color: white; }
+        button { background-color: #007bff; color: white; border: none; padding: 10px; cursor: pointer; border-radius: 5px; margin: 5px; }
+        button:hover { background-color: #0056b3; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Employee Management</h1>
+    <a href="/employees/add"><button>Add New Employee</button></a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% employees.forEach(employee => { %>
+                <tr>
+                    <td><%= employee.id %></td>
+                    <td><%= employee.name %></td>
+                    <td><%= employee.position %></td>
+                    <td><%= employee.salary %></td>
+                    <td>
+                        <a href="/employees/edit/<%= employee.id %>"><button>Edit</button></a>
+                        <form action="/employees/delete/<%= employee.id %>" method="post" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <a href="/logout">Logout</a>
+</body>
+</html>

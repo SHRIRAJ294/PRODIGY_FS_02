@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Employee</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; margin: 0; padding: 0; text-align: center; }
+        h1 { color: #333; }
+        form { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); max-width: 300px; margin: 20px auto; text-align: left; }
+        input[type="text"], input[type="number"] { width: calc(100% - 22px); padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        input[type="submit"] { background-color: #28a745; color: white; border: none; padding: 10px; font-size: 16px; cursor: pointer; border-radius: 5px; }
+        input[type="submit"]:hover { background-color: #218838; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Edit Employee</h1>
+    <form action="/employees/edit/<%= employee.id %>" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= employee.name %>" required><br>
+        <label for="position">Position:</label>
+        <input type="text" id="position" name="position" value="<%= employee.position %>" required><br>
+        <label for="salary">Salary:</label>
+        <input type="number" id="salary" name="salary" value="<%= employee.salary %>" required><br>
+        <input type="submit" value="Update Employee">
+    </form>
+    <a href="/employees">Back to Employee List</a>
+</body>
+</html>
